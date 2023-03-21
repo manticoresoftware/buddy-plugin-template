@@ -7,8 +7,8 @@ This is an initial template of a plugin for [Buddy](https://github.com/manticore
 1. Create a repository from this template.
 2. Open `composer.json` and edit it with your plugin name, dependencies, and everything else you need.
 3. Run `composer install` to make it work.
-4. You need to use our official `manticore-executor`; we strictly recommend using the [Docker](#how-to-use-docker-of-manticore-executor-dev) flow for it.
-5. Edit `src/Payload.php` and add logic to parse the request, and prepare the payload structure for your command processing.
+4. You need to use our official `manticore-executor`; we strictly recommend using the [Docker](#how-to-use-docker-of-manticore-executor-dev) flow.
+5. Edit `src/Payload.php`, add logic to parse the request, and prepare the payload structure for your command processing.
 6. Edit `src/Handler.php` and implement processing logic and response that will be proxied by Manticore to the client.
 
 ## How to use Docker of manticore-executor-dev
@@ -17,7 +17,7 @@ This is an initial template of a plugin for [Buddy](https://github.com/manticore
 2. Run this command to create a Docker image named `manticore-buddy`:
 
     ```bash
-    docker run --privileged --entrypoint bash -v $(pwd):/workdir -w /workdir --name manticore-buddy  --network host -it manticoresearch/manticore-executor-kit:0.6.6
+    docker run --privileged --entrypoint bash -v $(pwd):/workdir -w /workdir --name manticore-buddy  --network host -it manticoresearch/manticore-executor-kit:latest
     ```
 
 3. Now you can edit `/etc/manticore.conf` and configure the development version of Buddy:
@@ -26,7 +26,7 @@ This is an initial template of a plugin for [Buddy](https://github.com/manticore
     buddy_path = manticore-executor-dev /workdir/src/main.php --debug
     ```
 
-4. Run `searchd --nodetach` to keep the daemon in the foreground and enjoy development of your new plugin.
+4. Run `searchd --nodetach` to keep the daemon in the foreground and enjoy the development of your new plugin.
 
 ## Notes
 
